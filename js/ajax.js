@@ -50,8 +50,8 @@ const xhr = new XMLHttpRequest(),//1º paos creo una instancia
 
 })
     //3º paso abro comunicacion , 1º parametro tipo de comunicacion 2º su URL
-    // xhr.open("GET", "https://jsonplaceholder.typicode.com/users");
-    xhr.open("GET", "../assets/users.json");
+    xhr.open("GET", "https://jsonplaceholder.typicode.com/users");
+    // xhr.open("GET", "../assets/users.json");
     //4º paso envio de peticion
     xhr.send();//vacio solo read
 

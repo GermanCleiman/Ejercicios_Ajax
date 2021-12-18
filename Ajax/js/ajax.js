@@ -1,6 +1,6 @@
 // Funcion anonina autoejecutada con "XMLHttpRequest()"
 (() => {
-  const xhr = new XMLHttpRequest(), //1º paos creo una instancia
+  const xhr = new XMLHttpRequest(), //1º paso creo una instancia
     $xhr = document.getElementById("xhr"),
     $fragment = document.createDocumentFragment(); //crea unn fragmento de documento HTML
   //para hacer solo una insercion en el DOM

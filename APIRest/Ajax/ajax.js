@@ -60,3 +60,25 @@ const getAll = () => {
 };
 
 d.addEventListener("DOMContentLoaded", getAll);
+
+d.addEventListener("submit", (e) => {
+  if (e.target === $form) {
+    e.preventDefault(); //Lo paramos porque se ejecuta por ajax
+    if (!e.target.id.value) {
+      //si no tiene un valor el id en  POST - CREATE
+      ajax({
+        url: "http://localhost:3000/santos",
+        method: "POST",
+        success: (res) => location.reload(), //recarga la pagina
+        error: () =>
+          $form.insertAdjacentHTML("afterend", `<p><b>${err}</b></p>`),
+        data: {
+          nombre: e.target.nombre.value,
+          constelacion: e.target.constelacion.value,
+        },
+      });
+    } else {
+      // PUT- UPDATE
+    }
+  }
+});

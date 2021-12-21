@@ -8,7 +8,7 @@ const d = document,
 const ajax = (options) => {
   let { url, method, success, error, data } = options; //destructurado
   const xhr = new XMLHttpRequest();
-
+  console.log(method);
   xhr.addEventListener("readystatechange", (e) => {
     if (xhr.readyState !== 4) return;
 
@@ -30,7 +30,7 @@ const ajax = (options) => {
 const getAll = () => {
   ajax({
     //method: "GET",//No lo necesita
-    url: "http://localhost:3000/santos",
+    url: "http://localhost:5555/santos",
     success: (res) => {
       console.log(res);
       res.forEach((el) => {
@@ -67,7 +67,7 @@ d.addEventListener("submit", (e) => {
     if (!e.target.id.value) {
       //si no tiene un valor el id en  POST - CREATE
       ajax({
-        url: "http://localhost:3000/santos",
+        url: "http://localhost:5555/santos",
         method: "POST",
         success: (res) => location.reload(), //recarga la pagina
         error: () =>
@@ -79,6 +79,40 @@ d.addEventListener("submit", (e) => {
       });
     } else {
       // PUT- UPDATE
+      ajax({
+        url: `http://localhost:5555/santos/${e.target.id.value}`,
+        method: "PUT",
+        success: (res) => location.reload(),
+        error: () =>
+          $form.insertAdjacentHTML("afterend", `<p><b>${err}</b></p>`),
+        data: {
+          nombre: e.target.nombre.value,
+          constelacion: e.target.constelacion.value,
+        },
+      });
+    }
+  }
+});
+
+d.addEventListener("click", (e) => {
+  if (e.target.matches(".edit")) {
+    $title.textContent = "Editar Santo";
+    $form.nombre.value = e.target.dataset.name;
+    $form.constelacion.value = e.target.dataset.constellation;
+    $form.id.value = e.target.dataset.id;
+  }
+  if (e.target.matches(".delete")) {
+    let isDelete = confirm(
+      `¿Estas seguro de eliminar el id ${e.target.dataset.id}?`
+    );
+    if (isDelete) {
+      // DELETE
+      ajax({
+        url: `http://localhost:5555/santos/${e.target.dataset.id}`,
+        method: "DELETE",
+        success: (res) => location.reload(),
+        error: () => $form.insertAdjacentHTML(err),
+      });
     }
   }
 });

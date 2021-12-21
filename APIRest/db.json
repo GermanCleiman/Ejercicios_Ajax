@@ -29,6 +29,31 @@
       "nombre": "Mü",
       "constelacion": "Aries",
       "id": 7
+    },
+    {
+      "id": 6,
+      "nombre": "Saga",
+      "constelacion": "Geminis"
+    },
+    {
+      "nombre": "Aldebaran",
+      "constelacion": "Tauro",
+      "id": 8
+    },
+    {
+      "nombre": "Máscara de Muerte",
+      "constelacion": "Cancer",
+      "id": 9
+    },
+    {
+      "nombre": "Aiorioa",
+      "constelacion": "Leo",
+      "id": 10
+    },
+    {
+      "nombre": "Shaka ",
+      "constelacion": "Virgo",
+      "id": 11
     }
   ],
   "dioses": [

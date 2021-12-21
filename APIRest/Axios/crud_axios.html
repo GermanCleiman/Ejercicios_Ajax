@@ -11,7 +11,7 @@
     <section class="crud">
       <article>
         <h2 class="crud-title">Agregar Santo</h2>
-        <form class="crur-form">
+        <form class="crud-form">
           <input type="text" name="nombre" placeholder="nombre" required />
           <br />
           <input
@@ -49,13 +49,7 @@
         </td>
       </tr>
     </template>
-    <script>
-      const d = document,
-        $table = d.querySelector(".crud-table"),
-        $form = d.querySelector(".crud-form"),
-        $title = d.querySelector(".crud-title"),
-        $template = d.getElementById(".crud-template"),
-        $fragment = d.createDocumentFragment();
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./axios.js"></script>
   </body>
 </html>

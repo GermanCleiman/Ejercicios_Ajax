@@ -27,10 +27,10 @@ const getAll = async () => {
 
     $table.querySelector("tbody").appendChild($fragment);
   } catch (err) {
-    let message = err.statusText || "Ocurrió un error";
+    let message = err.response.statusText || "Ocurrió un error";
     $table.insertAdjacentHTML(
       "afterend",
-      `<p><b>Error ${err.status}: ${message}</b></p>`
+      `<p><b>Error ${err.response.status}: ${message}</b></p>`
     );
   }
 };
@@ -58,10 +58,10 @@ d.addEventListener("submit", async (e) => {
           json = await res.data;
         location.reload();
       } catch (err) {
-        let message = err.statusText || "Ocurrió un error";
+        let message = err.response.statusText || "Ocurrió un error";
         $form.insertAdjacentHTML(
           "afterend",
-          `<p><b>Error${err.status}: ${message}</b></p>`
+          `<p><b>Error${err.response.status}: ${message}</b></p>`
         );
       }
     } else {
@@ -84,10 +84,10 @@ d.addEventListener("submit", async (e) => {
           json = await res.data;
         location.reload();
       } catch (err) {
-        let message = err.statusText || "Ocurrió un error";
+        let message = err.response.statusText || "Ocurrió un error";
         $form.insertAdjacentHTML(
           "afterend",
-          `<p><b>Error${err.status} ${message}</b></p>`
+          `<p><b>Error${err.response.status} ${message}</b></p>`
         );
       }
     }
@@ -121,8 +121,8 @@ d.addEventListener("click", async (e) => {
           json = await res.data;
         location.reload();
       } catch (err) {
-        let message = err.statusText || "Ocurrió un error";
-        alert(`Error${err.status}: ${message}`);
+        let message = err.response.statusText || "Ocurrió un error";
+        alert(`Error${err.response.status}: ${message}`);
       }
     }
   }
